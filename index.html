@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Happy Teacher's Day</title>
+	<style type="text/css">
+		body {
+			background-image: url('classroom.jpg');
+			background-repeat: no-repeat;
+  			background-attachment: fixed;
+  			background-size: cover;
+		}
+
+		input{
+			position: absolute;
+  			top: 55%;
+  			left: 48%;
+			width: 80px;
+			height: 50px;
+			animation: wiggle 0.3s 0.2s infinite;
+		}
+
+		input:hover {
+			animation: none;
+		}
+
+		@keyframes wiggle {
+  			0% { transform: rotate(0deg); }
+   			25% { transform: rotate(2deg); }
+   			50% { transform: rotate(0deg); }
+   			75% { transform: rotate(-2deg); }
+  			100% { transform: rotate(0deg); }
+		}
+
+	</style>
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.js"></script>
+
+	<script type="text/javascript">
+	jQuery(function($j){
+		$j('input').hide(0).delay(6000).show(0);
+	})
+	</script>
+
+	
+</head>
+<body>
+	<input type="image" src="popup_letter.jpg"/>
+
+	<audio autoplay>
+  		<source src="afterclass.mp3" type="audio/ogg">
+    </audio>
+
+    <audio autoplay loop id="bg">
+  		<source src="bg_sound.mp3" type="audio/ogg">
+    </audio>
+	
+</body>
+
+<footer 
+    style="
+    	position: absolute;
+    	bottom: 20px; right: 0; 
+    	display: flex; justify-content: flex-end;
+    	width: 100%; align-items: center;">
+    <div style="
+    		text-align: right;
+    		line-height: 1.25; font-weight: bold;
+    		font-size: 18px">
+        <span id="icon-name" style="display: block;">18H50201</span>
+        <span style="display: block;">VGH</span>
+    </div>
+    <img style="
+    		width: 120px;
+    		height: auto;" 
+    	src="https://iconclub.github.io/assets/iconLogo.png" alt="ICON">
+</footer>
+
+</html>

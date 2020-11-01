@@ -18,6 +18,7 @@
     }
 
     input{
+      display: none;
       position: absolute;
       top: 55%;
       left: 48%;
@@ -113,9 +114,9 @@
 
 
   <script type="text/javascript">
-    jQuery(function($j){
+    /*jQuery(function($j){
       $j('input').hide(0).delay(6500).show(0);
-    });
+    });*/
 
     $(document).ready(function (){
       $("#bg_sound").stop("true").delay('4000').queue(function() { 
@@ -124,7 +125,9 @@
     });
 
     var popSound = document.getElementById("pop");
+    var letter = document.getElementById("letter");
     function playPopup(){
+      letter.style.display = "block";
       popSound.play();
     }
 

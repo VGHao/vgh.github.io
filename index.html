@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Teacher's Day</title>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.1.js"></script>
+  <script src="jquery-2.1.4.min.js"></script>
+  <script src="jquery.flip.js"></script>
+
+  <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style type="text/css">
+    body {
+      background-image: url('classroom.jpg');
+      background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    input{
+      position: absolute;
+      top: 55%;
+      left: 48%;
+      width: 80px;
+      height: 50px;
+      animation: wiggle 0.3s 0.2s infinite;
+      outline: none;
+    }
+
+    input:hover {
+      animation: none;
+    }
+
+    @keyframes wiggle {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(2deg); }
+        50% { transform: rotate(0deg); }
+        75% { transform: rotate(-2deg); }
+        100% { transform: rotate(0deg); }
+    }
+
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+      .modal-content {
+        background-image: url("bg_letter.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 40px;
+        border: 1px solid #888;
+        width: 70%;
+      }
+
+      p {
+        text-align: center;
+        font: 400 40px/0.8 'Cookie', Helvetica, sans-serif;
+        color: rgba(0,0,0,0.7);
+        text-shadow: 3px 3px 3px #fff;
+      }
+
+      h1{
+        text-align: center;
+        font: 400 80px/0.8 'Great Vibes', Helvetica, sans-serif;
+        color: rgba(0,0,0,0.7);
+        text-shadow: 4px 4px 3px rgba(0,0,0,0.1); 
+      }
+
+  </style>
+
+</head>
+<body>
+  <input id = "letter" type="image" src="popup_letter.jpg"/>
+
+  <audio autoplay onended="playPopup()">
+    <source src="afterclass.mp3" type="audio/mp3">
+  </audio>
+
+  <div id='bg_sound'></div>
+
+  <audio id='pop'>
+    <source src="pop_sound.mp3" type="audio/mp3">
+  </audio>
+
+  <audio id='flip'>
+    <source src="flip_sound.mp3" type="audio/mp3">
+  </audio>
+
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+    <div class="back"></div>
+    <div class="front">
+      <p> We wish we knew some ways to let you know our gratitude.<br> We feel for you our dear teachers but just can’t say.<br> So we hope this little card <br> will at least show a part of our warmest appreciation that is coming <br>from the bottom of our heart.</p>
+      <h1>Happy Teacher's Day</h1>
+    </div>
+    </div>
+
+  </div>
+
+
+  <script type="text/javascript">
+    jQuery(function($j){
+      $j('input').hide(0).delay(6500).show(0);
+    });
+
+    $(document).ready(function (){
+      $("#bg_sound").stop("true").delay('4000').queue(function() { 
+        $(this).html('<audio loop autoplay><source src="bg_sound.mp3" type="audio/mp3"/></audio>');
+      });
+    });
+
+    var popSound = document.getElementById("pop");
+    function playPopup(){
+      popSound.play();
+    }
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("letter");
+
+    var flipSound = document.getElementById("flip");
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+      flipSound.play();
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+  </script>
+
+</body>
+
+<footer 
+    style="
+      position: absolute;
+      bottom: 20px; right: 0; 
+      display: flex; justify-content: flex-end;
+      width: 100%; align-items: center;">
+    <div style="
+        text-align: right;
+        line-height: 1.25; font-weight: bold;
+        font-size: 18px">
+        <span id="icon-name" style="display: block;">18H50201</span>
+        <span style="display: block;">VGH</span>
+    </div>
+    <img style="
+        width: 120px;
+        height: auto;" 
+      src="https://iconclub.github.io/assets/iconLogo.png" alt="ICON">
+</footer>
+
+</html>
